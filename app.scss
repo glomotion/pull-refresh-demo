@@ -53,7 +53,6 @@ hgroup {
 	> * {
 		margin: 0;
 		font-family: 'Vollkorn', serif;
-		font-weight: 400;
 		line-height: 1.1;
 		color: white;
 	}
@@ -61,14 +60,18 @@ hgroup {
 		position: absolute;
 		padding: 0 15px;
 		line-height: 40px;
-		font-size: 20px;
+		font-size: 15px;
 		cursor: pointer;
 		display: none;
+		font-weight: 600;
+		font-family: "Roboto", san-serif;
+		text-transform: lowercase;
 	}
 	
 	h2 {
 		font-family: "Roboto", san-serif;
-		font-size: 13px;
+		font-size: 14px;
+		font-weight: 300;
 	}
 	h1 {
 		font-weight: 700;
@@ -85,12 +88,12 @@ hgroup {
 	
 	.cancel {
 		top: 0; right: 0;
-		background: lighten(#1c1c1c, 10%);
+		background: lighten(#1c1c1c, 7%);
 		color: rgba(255,255,255,.7);
 	}
 	
 	h2 {
-		color: lighten(#1c1c1c, 30%);
+		color: lighten(#1c1c1c, 35%);
 	}
 	h1 {
 		margin: 45px 0 0 0;
@@ -104,20 +107,20 @@ hgroup {
 	
 	.cancel {
 		bottom: 0; right: 0;
-		background: darken(mediumseagreen, 5%);
-		color: darken(mediumseagreen, 30%);
+		background: darken(mediumseagreen, 7%);
+		color: darken(mediumseagreen, 40%);
 	}
 	
 	h2 {
-		color: darken(mediumseagreen, 25%);
+		color: darken(mediumseagreen, 27%);
 		position: absolute;
 		bottom: 25px;
 	}
 	h1 {
-		color: darken(mediumseagreen, 25%);
+		color: darken(mediumseagreen, 33%);
 		margin: 0;
 		position: absolute;
-		bottom: 80px;
+		bottom: 82px;
 		left: 0;
 		width: 100%;
 	}

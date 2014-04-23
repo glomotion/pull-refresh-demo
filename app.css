@@ -48,72 +48,75 @@ hgroup {
   hgroup > * {
     margin: 0;
     font-family: 'Vollkorn', serif;
-    font-weight: 400;
     line-height: 1.1;
     color: white; }
-  /* line 60, app.scss */
+  /* line 59, app.scss */
   hgroup .cancel {
     position: absolute;
     padding: 0 15px;
     line-height: 40px;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
-    display: none; }
-  /* line 69, app.scss */
+    display: none;
+    font-weight: 600;
+    font-family: "Roboto", san-serif;
+    text-transform: lowercase; }
+  /* line 71, app.scss */
   hgroup h2 {
     font-family: "Roboto", san-serif;
-    font-size: 13px; }
-  /* line 73, app.scss */
+    font-size: 14px;
+    font-weight: 300; }
+  /* line 76, app.scss */
   hgroup h1 {
     font-weight: 700;
     font-size: 25px;
     text-align: center;
     display: none; }
 
-/* line 81, app.scss */
+/* line 84, app.scss */
 #pull-down {
   top: 0;
   left: 0;
   background: #1c1c1c; }
-  /* line 86, app.scss */
+  /* line 89, app.scss */
   #pull-down .cancel {
     top: 0;
     right: 0;
-    background: #363636;
+    background: #2e2e2e;
     color: rgba(255, 255, 255, 0.7); }
-  /* line 92, app.scss */
-  #pull-down h2 {
-    color: dimgrey; }
   /* line 95, app.scss */
+  #pull-down h2 {
+    color: #757575; }
+  /* line 98, app.scss */
   #pull-down h1 {
     margin: 45px 0 0 0; }
 
-/* line 100, app.scss */
+/* line 103, app.scss */
 #pull-up {
   bottom: 0;
   left: 0;
   background: mediumseagreen; }
-  /* line 105, app.scss */
+  /* line 108, app.scss */
   #pull-up .cancel {
     bottom: 0;
     right: 0;
-    background: #36a065;
-    color: #164029; }
-  /* line 111, app.scss */
+    background: #339860;
+    color: #091a11; }
+  /* line 114, app.scss */
   #pull-up h2 {
-    color: #1c5435;
+    color: #194c30;
     position: absolute;
     bottom: 25px; }
-  /* line 116, app.scss */
+  /* line 119, app.scss */
   #pull-up h1 {
-    color: #1c5435;
+    color: #123521;
     margin: 0;
     position: absolute;
-    bottom: 80px;
+    bottom: 82px;
     left: 0;
     width: 100%; }
 
-/* line 126, app.scss */
+/* line 129, app.scss */
 #hitzone {
   position: absolute;
   z-index: 1;
@@ -126,26 +129,26 @@ hgroup {
   transition-property: transform;
   transition-duration: 0s;
   transition-timing-function: ease-in-out; }
-  /* line 145, app.scss */
+  /* line 148, app.scss */
   #hitzone.return {
     transition-duration: 200ms; }
 
-/* line 153, app.scss */
+/* line 156, app.scss */
 body.pulldown-mode hgroup .cancel {
   display: block; }
-/* line 156, app.scss */
+/* line 159, app.scss */
 body.pulldown-mode hgroup h1 {
   display: block; }
-/* line 160, app.scss */
+/* line 163, app.scss */
 body.pulldown-mode #hitzone {
   transform: translate3d(0, 150px, 0) !important; }
 
-/* line 167, app.scss */
+/* line 170, app.scss */
 body.pullup-mode hgroup .cancel {
   display: block; }
-/* line 170, app.scss */
+/* line 173, app.scss */
 body.pullup-mode hgroup h1 {
   display: block; }
-/* line 174, app.scss */
+/* line 177, app.scss */
 body.pullup-mode #hitzone {
   transform: translate3d(0, -150px, 0) !important; }
