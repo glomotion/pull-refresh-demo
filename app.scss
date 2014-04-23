@@ -100,16 +100,16 @@ hgroup {
 #pull-up {
 
 	bottom: 0; left: 0;
-	background: darken(dodgerblue, 10%);
+	background: darken(yellowgreen, 0%);
 	
 	.cancel {
 		bottom: 0; right: 0;
-		background: darken(dodgerblue, 0%);
+		background: darken(yellowgreen, 0%);
 		color: rgba(255,255,255,.8);
 	}
 	
 	h2 {
-		color: lighten(dodgerblue, 45%);
+		color: lighten(yellowgreen, 45%);
 		position: absolute;
 		bottom: 25px;
 	}

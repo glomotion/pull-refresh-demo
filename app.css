@@ -92,16 +92,16 @@ hgroup {
 #pull-up {
   bottom: 0;
   left: 0;
-  background: #0077ea; }
+  background: yellowgreen; }
   /* line 105, app.scss */
   #pull-up .cancel {
     bottom: 0;
     right: 0;
-    background: dodgerblue;
+    background: yellowgreen;
     color: rgba(255, 255, 255, 0.8); }
   /* line 111, app.scss */
   #pull-up h2 {
-    color: white;
+    color: #f5faeb;
     position: absolute;
     bottom: 25px; }
   /* line 116, app.scss */
