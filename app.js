@@ -1,18 +1,21 @@
 $(function(){
 
-
 	var TIMEOUT_VAL = 200;
+	var BREAKPOINT = 80;
+	var TRANSLATE_RATIO = .4;
+
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
+	
 	var dragged_down, dragged_up;
 	var pullDownMode, pullUpMode;
     
-    $hitzone.hammer().on('touch dragdown dragup release', function(e) {
-        handleHammer(e);  
+    $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
+        handleHammer(ev);  
     });
 
-    $('.cancel').hammer().on('tap', function(e) {
-        resetMode();
+    $('.cancel').hammer().on('tap', function() {
+        resetModes();
     });
 	
     /**
@@ -41,15 +44,15 @@ $(function(){
 	            if(!dragged_down && !dragged_up) {
 	                return;
 	            }
-                if (pullDownMode) {
+                $hitzone.addClass('return').css({
+			    	"transform" : "translate3d(0,0,0)"
+			    });
+			    if (pullDownMode) {
                 	$body.addClass('pulldown-mode');
                 }
                 if (pullUpMode) {
                 	$body.addClass('pullup-mode');
                 }
-                $hitzone.addClass('return').css({
-			    	"transform" : "translate3d(0,0,0)"
-			    });
 			    setTimeout(function() {
 			        $hitzone.removeClass('return');
 			    }, TIMEOUT_VAL);
@@ -61,17 +64,17 @@ $(function(){
             case 'dragdown':
 
             	dragged_down = true;
-            	var translateAmount = ev.gesture.deltaY * .55;
+            	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
 
        			$hitzone.css({
 			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
 			    });
-			    if (translateAmount >= 70) {
+			    if (translateAmount >= BREAKPOINT) {
 			    	pullDownMode = true;
 			    }
 			    if (pullUpMode) {
-			    	resetMode();
+			    	resetModes();
 			    }
 
                 break;
@@ -82,26 +85,26 @@ $(function(){
             case 'dragup':
 
             	dragged_up = true;
-            	var translateAmount = ev.gesture.deltaY * .55;
+            	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
 
        			$hitzone.css({
 			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
 			    });
 
-			    if (translateAmount <= -70) {
+			    if (translateAmount <= -BREAKPOINT) {
 			    	pullUpMode = true;
 			    }
 			    if (pullDownMode) {
-			    	resetMode();
+			    	resetModes();
 			    }
                 
                 break;
         }
 
-    };
+    }
 
-    function resetMode() {
+    function resetModes() {
     	$hitzone.attr('class','return');
     	$body.attr('class','');
     	pullDownMode = false;

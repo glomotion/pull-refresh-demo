@@ -75,8 +75,8 @@ hgroup {
   background: #1c1c1c; }
   /* line 85, app.scss */
   #pull-down .cancel {
-    top: 20px;
-    right: 20px;
+    top: 25px;
+    right: 25px;
     background: #363636;
     color: rgba(255, 255, 255, 0.7); }
   /* line 91, app.scss */
@@ -90,8 +90,8 @@ hgroup {
   background: #0077ea; }
   /* line 104, app.scss */
   #pull-up .cancel {
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     background: dodgerblue;
     color: rgba(255, 255, 255, 0.8); }
   /* line 110, app.scss */
