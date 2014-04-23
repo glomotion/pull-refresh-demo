@@ -29,7 +29,7 @@ $(function(){
         
         switch(ev.type) {
 
-            // on release we check how far we dragged
+            // on release we check if we dragged enough to warrant a mode switch
             case 'release':
                 $hitzone.addClass('return').css({
 			    	"transform" : "translate3d(0,0,0)"
