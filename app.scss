@@ -104,16 +104,17 @@ hgroup {
 	
 	.cancel {
 		bottom: 0; right: 0;
-		background: darken(yellowgreen, 0%);
+		background: darken(yellowgreen, 10%);
 		color: rgba(255,255,255,.8);
 	}
 	
 	h2 {
-		color: lighten(yellowgreen, 45%);
+		color: darken(yellowgreen, 35%);
 		position: absolute;
 		bottom: 25px;
 	}
 	h1 {
+		color: darken(yellowgreen, 35%);
 		margin: 0;
 		position: absolute;
 		bottom: 80px;
