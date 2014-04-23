@@ -1,7 +1,7 @@
 $(function(){
 
 	var TIMEOUT_VAL = 200;
-	var BREAKPOINT = 80;
+	var BREAKPOINT = 70;
 	var TRANSLATE_RATIO = .4;
 
 	var $body = $('body');
