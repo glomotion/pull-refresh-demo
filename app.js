@@ -7,7 +7,6 @@ $(function(){
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
 	
-	var dragged_down, dragged_up;
 	var pullDownMode, pullUpMode;
     
     $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
@@ -30,20 +29,8 @@ $(function(){
         
         switch(ev.type) {
 
-            // reset element on start
-            case 'touch':
-                $hitzone.css({
-			    	"transform" : "translate3d(0,0,0)"
-			    });
-                break;
-
-
             // on release we check how far we dragged
             case 'release':
-            	$hitzone.addClass('return');
-	            if(!dragged_down && !dragged_up) {
-	                return;
-	            }
                 $hitzone.addClass('return').css({
 			    	"transform" : "translate3d(0,0,0)"
 			    });
@@ -59,11 +46,9 @@ $(function(){
                 break;
 
 
-
             // when we dragdown
             case 'dragdown':
 
-            	dragged_down = true;
             	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
 
@@ -80,11 +65,9 @@ $(function(){
                 break;
 
 
-
             // when we dragup
             case 'dragup':
 
-            	dragged_up = true;
             	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
 
