@@ -100,21 +100,21 @@ hgroup {
 #pull-up {
 
 	bottom: 0; left: 0;
-	background: darken(springgreen, 0%);
+	background: darken(mediumseagreen, 0%);
 	
 	.cancel {
 		bottom: 0; right: 0;
-		background: darken(springgreen, 10%);
-		color: rgba(255,255,255,.8);
+		background: darken(mediumseagreen, 5%);
+		color: darken(mediumseagreen, 30%);
 	}
 	
 	h2 {
-		color: darken(springgreen, 25%);
+		color: darken(mediumseagreen, 25%);
 		position: absolute;
 		bottom: 25px;
 	}
 	h1 {
-		color: darken(springgreen, 25%);
+		color: darken(mediumseagreen, 25%);
 		margin: 0;
 		position: absolute;
 		bottom: 80px;

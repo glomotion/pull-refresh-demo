@@ -92,21 +92,21 @@ hgroup {
 #pull-up {
   bottom: 0;
   left: 0;
-  background: springgreen; }
+  background: mediumseagreen; }
   /* line 105, app.scss */
   #pull-up .cancel {
     bottom: 0;
     right: 0;
-    background: #00cc66;
-    color: rgba(255, 255, 255, 0.8); }
+    background: #36a065;
+    color: #164029; }
   /* line 111, app.scss */
   #pull-up h2 {
-    color: #00803f;
+    color: #1c5435;
     position: absolute;
     bottom: 25px; }
   /* line 116, app.scss */
   #pull-up h1 {
-    color: #00803f;
+    color: #1c5435;
     margin: 0;
     position: absolute;
     bottom: 80px;
