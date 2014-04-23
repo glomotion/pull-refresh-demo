@@ -1,0 +1,174 @@
+ /*
+ * Import Sass add-ons
+ */
+
+@import "compass";
+
+*, *::before, *::after {
+	@include box-sizing(border-box);
+}
+
+html, body {
+	height: 100%;
+}
+
+/* 
+
+Open Sans
+		
+	300 - light
+	300italic
+	400 - normal / regular
+	400italic
+	600 - medium
+	700 - bold
+	800 - black 
+
+Vollkorn
+
+	400 - regular
+	700 - bold
+
+*/
+
+
+body {
+	margin: 0;
+	padding: 0;
+
+	// OSX Font aliasing:
+	-webkit-font-smoothing: antialiased; // Chrome/Safari font aliasing
+	-moz-osx-font-smoothing: grayscale; // Firefox font aliasing
+
+	font-family: "Roboto", san-serif;
+}
+
+hgroup {
+	
+	position: absolute;
+	width: 100%;
+	min-height: 50%;
+	padding: 25px;
+	z-index: 0;
+
+	> * {
+		margin: 0;
+		font-family: 'Vollkorn', serif;
+		font-weight: 400;
+		color: white;
+	}
+	.cancel {
+		position: absolute;
+		padding: 0 15px;
+		line-height: 40px;
+		font-size: 20px;
+		cursor: pointer;
+		display: none;
+	}
+	
+	h2 {
+		font-family: "Roboto", san-serif;
+		font-size: 13px;
+	}
+	h1 {
+		font-weight: 700;
+		font-size: 25px;
+		text-align: center;
+		display: none;
+	}
+}
+
+#pull-down {
+	
+	top: 0; left: 0;
+	background: lighten(#1c1c1c, 0%);
+	
+	.cancel {
+		top: 0; right: 0;
+		background: lighten(#1c1c1c, 10%);
+		color: rgba(255,255,255,.7);
+	}
+	
+	h2 {
+		color: lighten(#1c1c1c, 30%);
+	}
+	h1 {
+		margin: 40px 0 0 0;
+	}
+}
+
+#pull-up {
+
+	bottom: 0; left: 0;
+	background: darken(dodgerblue, 10%);
+	
+	.cancel {
+		bottom: 0; right: 0;
+		background: darken(dodgerblue, 0%);
+		color: rgba(255,255,255,.8);
+	}
+	
+	h2 {
+		color: lighten(dodgerblue, 45%);
+		position: absolute;
+		bottom: 25px;
+	}
+	h1 {
+		margin: 0;
+		position: absolute;
+		bottom: 80px;
+		left: 0;
+		width: 100%;
+	}
+}
+
+#hitzone {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	text-align: center;
+	background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
+	
+	transition-property: transform;
+	transition-duration: 0s;
+	transition-timing-function: ease-in-out;
+	
+	&.return {
+		transition-duration: 200ms;
+	}
+}
+
+
+body.pulldown-mode {
+	hgroup {
+		.cancel {
+			display: block;
+		}
+		h1 {
+			display: block;
+		}
+	}
+	#hitzone {
+		transform: translate3d( 0,150px,0 ) !important;
+	}
+}
+
+body.pullup-mode {
+	hgroup {
+		.cancel {
+			display: block;
+		}
+		h1 {
+			display: block;
+		}
+	}
+	#hitzone {
+		transform: translate3d( 0,-150px,0 ) !important;
+	}
+}
+
+
+
