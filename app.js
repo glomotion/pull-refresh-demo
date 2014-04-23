@@ -18,12 +18,12 @@ $(function(){
     });
 	
     /**
-     * Handle HammerJS callback
-     * @param ev
+     * Handle HammerJS event handler
+     * @param ev: the current gesture event object
      */
     function handleHammer(ev) {
 
-    	// stop browser scrolling
+    	// stops browser scroll events &
     	// fixes much flakyness in Clank...
         ev.gesture.preventDefault();
         
@@ -87,6 +87,7 @@ $(function(){
 
     }
 
+    // A simple reset function, to toggle the mode back to normal mode
     function resetModes() {
     	$hitzone.attr('class','return');
     	$body.attr('class','');
