@@ -24,7 +24,7 @@ $(function(){
     function handleHammer(ev) {
 
     	// stop browser scrolling
-    	// fixes much flakyness on Clank...
+    	// fixes much flakyness in Clank...
         ev.gesture.preventDefault();
         
         switch(ev.type) {
