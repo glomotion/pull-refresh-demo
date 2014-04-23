@@ -49,8 +49,9 @@ hgroup {
     margin: 0;
     font-family: 'Vollkorn', serif;
     font-weight: 400;
+    line-height: 1.1;
     color: white; }
-  /* line 59, app.scss */
+  /* line 60, app.scss */
   hgroup .cancel {
     position: absolute;
     padding: 0 15px;
@@ -58,52 +59,52 @@ hgroup {
     font-size: 20px;
     cursor: pointer;
     display: none; }
-  /* line 68, app.scss */
+  /* line 69, app.scss */
   hgroup h2 {
     font-family: "Roboto", san-serif;
     font-size: 13px; }
-  /* line 72, app.scss */
+  /* line 73, app.scss */
   hgroup h1 {
     font-weight: 700;
     font-size: 25px;
     text-align: center;
     display: none; }
 
-/* line 80, app.scss */
+/* line 81, app.scss */
 #pull-down {
   top: 0;
   left: 0;
   background: #1c1c1c; }
-  /* line 85, app.scss */
+  /* line 86, app.scss */
   #pull-down .cancel {
     top: 0;
     right: 0;
     background: #363636;
     color: rgba(255, 255, 255, 0.7); }
-  /* line 91, app.scss */
+  /* line 92, app.scss */
   #pull-down h2 {
     color: dimgrey; }
-  /* line 94, app.scss */
+  /* line 95, app.scss */
   #pull-down h1 {
     margin: 40px 0 0 0; }
 
-/* line 99, app.scss */
+/* line 100, app.scss */
 #pull-up {
   bottom: 0;
   left: 0;
   background: #0077ea; }
-  /* line 104, app.scss */
+  /* line 105, app.scss */
   #pull-up .cancel {
     bottom: 0;
     right: 0;
     background: dodgerblue;
     color: rgba(255, 255, 255, 0.8); }
-  /* line 110, app.scss */
+  /* line 111, app.scss */
   #pull-up h2 {
     color: white;
     position: absolute;
     bottom: 25px; }
-  /* line 115, app.scss */
+  /* line 116, app.scss */
   #pull-up h1 {
     margin: 0;
     position: absolute;
@@ -111,7 +112,7 @@ hgroup {
     left: 0;
     width: 100%; }
 
-/* line 124, app.scss */
+/* line 125, app.scss */
 #hitzone {
   position: absolute;
   z-index: 1;
@@ -124,26 +125,26 @@ hgroup {
   transition-property: transform;
   transition-duration: 0s;
   transition-timing-function: ease-in-out; }
-  /* line 143, app.scss */
+  /* line 144, app.scss */
   #hitzone.return {
     transition-duration: 200ms; }
 
-/* line 151, app.scss */
+/* line 152, app.scss */
 body.pulldown-mode hgroup .cancel {
   display: block; }
-/* line 154, app.scss */
+/* line 155, app.scss */
 body.pulldown-mode hgroup h1 {
   display: block; }
-/* line 158, app.scss */
+/* line 159, app.scss */
 body.pulldown-mode #hitzone {
   transform: translate3d(0, 150px, 0) !important; }
 
-/* line 165, app.scss */
+/* line 166, app.scss */
 body.pullup-mode hgroup .cancel {
   display: block; }
-/* line 168, app.scss */
+/* line 169, app.scss */
 body.pullup-mode hgroup h1 {
   display: block; }
-/* line 172, app.scss */
+/* line 173, app.scss */
 body.pullup-mode #hitzone {
   transform: translate3d(0, -150px, 0) !important; }
