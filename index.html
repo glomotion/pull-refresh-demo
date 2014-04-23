@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0059)http://cubiq.org/dropbox/iscroll4/examples/pull-to-refresh/ -->
 <html>
 
 <head>
@@ -10,18 +9,28 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-	<title>simple swip up and down</title>
-	
+	<title>simple swipe up and down into 'modes'</title>
+	<link href='//fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,700,800,600,300|Vollkorn:400,700' rel='stylesheet' type='text/css'>
+	<script src="prefixfree.min.js"></script>
 	<link href="app.css" rel="stylesheet">
 
 </head>
 <body>
 
+	
+	<hgroup id="pull-down">
+		<h4 class="cancel">cancel</h4>
+		<h2>pull down to recieve cards</h2>
+		<h1>Waiting for a card...</h1>
+	</hgroup>
 
 	<div id="hitzone"></div>
 	
-
-
+	<hgroup id="pull-up">
+		<h4 class="cancel">cancel</h4>
+		<h1>Now bump to send...</h1>
+		<h2>pull up to send this card</h2>
+	</hgroup>
 
 	<!-- jQuery is just for the demo! Hammer.js works without jQuery :-) -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
