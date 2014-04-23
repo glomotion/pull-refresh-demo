@@ -10,54 +10,23 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-	<title>iScroll demo: simple</title>
+	<title>simple swip up and down</title>
 	
-	<link href="app.css">
-	<script src="iscroll.js"></script>
-	<script src="app.js"></script>
+	<link href="app.css" rel="stylesheet">
 
 </head>
 <body>
 
-<div id="header"><a href="http://cubiq.org/iscroll">iScroll</a></div>
 
-<div id="wrapper" style="overflow: hidden; left: 0px;">
+	<div id="hitzone"></div>
+	
 
-	<div id="scroller">
 
-		<div id="pullDown">
-			<span class="pullDownIcon"></span>
-			<span class="pullDownLabel">Pull down to refresh...</span>
-		</div>
 
-		<ul id="thelist">
-			<li>Pretty row 1</li>
-			<li>Pretty row 2</li>
-			<li>Pretty row 3</li>
-			<li>Pretty row 4</li>
-			<li>Pretty row 5</li>
-			<li>Pretty row 6</li>
-			<li>Pretty row 7</li>
-			<li>Pretty row 8</li>
-			<li>Pretty row 9</li>
-			<li>Pretty row 10</li>
-			<li>Pretty row 11</li>
-			<li>Pretty row 12</li>
-			<li>Pretty row 13</li>
-			<li>Pretty row 14</li>
-			<li>Pretty row 15</li>
-			<li>Pretty row 16</li>
-			<li>Pretty row 17</li>
-			<li>Pretty row 38</li>
-			<li>Pretty row 39</li>
-			<li>Pretty row 40</li>
-		</ul>
-		<div id="pullUp">
-			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
-		</div>
-	</div>
-
-</div>
+	<!-- jQuery is just for the demo! Hammer.js works without jQuery :-) -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="jquery.hammer-full.js"></script>
+	<script src="app.js"></script>	
 
 </body>
 

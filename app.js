@@ -1,91 +1,61 @@
-var myScroll,
-	pullDownEl, pullDownOffset,
-	pullUpEl, pullUpOffset,
-	generatedCount = 0;
+$(function(){
 
-function pullDownAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-		var el, li, i;
-		el = document.getElementById('thelist');
-
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
-			el.insertBefore(li, el.childNodes[0]);
-		}
-		
-		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
-
-function pullUpAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-		var el, li, i;
-		el = document.getElementById('thelist');
-
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
-			el.appendChild(li, el.childNodes[0]);
-		}
-		
-		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
-
-function loaded() {
-	pullDownEl = document.getElementById('pullDown');
-	pullDownOffset = pullDownEl.offsetHeight;
-	pullUpEl = document.getElementById('pullUp');	
-	pullUpOffset = pullUpEl.offsetHeight;
+	var TIMEOUT_VAL = 200;
+	var $hitzone = $('#hitzone');
+	var dragged_down = false;
+    
+    $hitzone.hammer().on('touch dragdown release', function(e) {
+        handleHammer(e);  
+    });
 	
-	myScroll = new iScroll('wrapper', {
-		useTransition: true,
-		topOffset: pullDownOffset,
-		onRefresh: function () {
-			if (pullDownEl.className.match('loading')) {
-				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-			} else if (pullUpEl.className.match('loading')) {
-				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
-			}
-		},
-		onScrollMove: function () {
-			if (this.y > 5 && !pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'flip';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
-				this.minScrollY = 0;
-			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
-				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
-				this.minScrollY = -pullDownOffset;
-			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'flip';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
-				this.maxScrollY = this.maxScrollY;
-			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
-				this.maxScrollY = pullUpOffset;
-			}
-		},
-		onScrollEnd: function () {
-			if (pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'loading';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';				
-				pullDownAction();	// Execute custom function (ajax call?)
-			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'loading';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';				
-				pullUpAction();	// Execute custom function (ajax call?)
-			}
-		}
-	});
-	
-	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
-}
+    /**
+     * Handle HammerJS callback
+     * @param ev
+     */
+    var handleHammer = function(ev) {
 
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        switch(ev.type) {
 
-document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+
+            // on release we check how far we dragged
+            case 'release':
+	            
+	            console.log(ev.type);
+
+	            if(!dragged_down) {
+	                return;
+	            }
+                
+                $hitzone.addClass('return').css({
+			    	"transform" : "translate3d(0,0,0)"
+			    });
+			    setTimeout(function() {
+			        $hitzone.removeClass('return')
+			    }, TIMEOUT_VAL);
+                break;
+
+
+            // when we dragdown
+            case 'dragdown':
+            	
+                console.log(ev.type);
+
+            	dragged_down = true;
+
+            	var translateAmount = ev.gesture.deltaY * .6;
+            	console.log(translateAmount);
+
+       			$hitzone.css({
+			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
+			    });
+
+			    // stop browser scrolling
+                ev.gesture.preventDefault();
+                
+                break;
+        }
+
+    };
+
+
+})
