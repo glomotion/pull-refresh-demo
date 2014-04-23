@@ -46,7 +46,7 @@ $(function(){
                 break;
 
 
-            // when we dragdown
+            // when we dragdown ...
             case 'dragdown':
 
             	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
@@ -65,7 +65,7 @@ $(function(){
                 break;
 
 
-            // when we dragup
+            // when we dragup ...
             case 'dragup':
 
             	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;

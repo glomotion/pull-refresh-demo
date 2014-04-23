@@ -29,7 +29,7 @@ Vollkorn
 	700 - bold
 
 */
-/* line 35, app.scss */
+/* line 34, app.scss */
 body {
   margin: 0;
   padding: 0;
@@ -37,20 +37,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto", san-serif; }
 
-/* line 46, app.scss */
+/* line 45, app.scss */
 hgroup {
   position: absolute;
   width: 100%;
   min-height: 50%;
   padding: 25px;
   z-index: 0; }
-  /* line 54, app.scss */
+  /* line 53, app.scss */
   hgroup > * {
     margin: 0;
     font-family: 'Vollkorn', serif;
     font-weight: 400;
     color: white; }
-  /* line 60, app.scss */
+  /* line 59, app.scss */
   hgroup .cancel {
     position: absolute;
     padding: 0 15px;
@@ -58,52 +58,52 @@ hgroup {
     font-size: 20px;
     cursor: pointer;
     display: none; }
-  /* line 69, app.scss */
+  /* line 68, app.scss */
   hgroup h2 {
     font-family: "Roboto", san-serif;
     font-size: 13px; }
-  /* line 73, app.scss */
+  /* line 72, app.scss */
   hgroup h1 {
     font-weight: 700;
     font-size: 25px;
     text-align: center;
     display: none; }
 
-/* line 81, app.scss */
+/* line 80, app.scss */
 #pull-down {
   top: 0;
   left: 0;
   background: #1c1c1c; }
-  /* line 86, app.scss */
+  /* line 85, app.scss */
   #pull-down .cancel {
     top: 0;
     right: 0;
     background: #363636;
     color: rgba(255, 255, 255, 0.7); }
-  /* line 92, app.scss */
+  /* line 91, app.scss */
   #pull-down h2 {
     color: dimgrey; }
-  /* line 95, app.scss */
+  /* line 94, app.scss */
   #pull-down h1 {
     margin: 40px 0 0 0; }
 
-/* line 100, app.scss */
+/* line 99, app.scss */
 #pull-up {
   bottom: 0;
   left: 0;
   background: #0077ea; }
-  /* line 105, app.scss */
+  /* line 104, app.scss */
   #pull-up .cancel {
     bottom: 0;
     right: 0;
     background: dodgerblue;
     color: rgba(255, 255, 255, 0.8); }
-  /* line 111, app.scss */
+  /* line 110, app.scss */
   #pull-up h2 {
     color: white;
     position: absolute;
     bottom: 25px; }
-  /* line 116, app.scss */
+  /* line 115, app.scss */
   #pull-up h1 {
     margin: 0;
     position: absolute;
@@ -111,7 +111,7 @@ hgroup {
     left: 0;
     width: 100%; }
 
-/* line 125, app.scss */
+/* line 124, app.scss */
 #hitzone {
   position: absolute;
   z-index: 1;
@@ -124,26 +124,26 @@ hgroup {
   transition-property: transform;
   transition-duration: 0s;
   transition-timing-function: ease-in-out; }
-  /* line 139, app.scss */
+  /* line 143, app.scss */
   #hitzone.return {
     transition-duration: 200ms; }
 
-/* line 147, app.scss */
+/* line 151, app.scss */
 body.pulldown-mode hgroup .cancel {
   display: block; }
-/* line 150, app.scss */
+/* line 154, app.scss */
 body.pulldown-mode hgroup h1 {
   display: block; }
-/* line 154, app.scss */
+/* line 158, app.scss */
 body.pulldown-mode #hitzone {
   transform: translate3d(0, 150px, 0) !important; }
 
-/* line 161, app.scss */
+/* line 165, app.scss */
 body.pullup-mode hgroup .cancel {
   display: block; }
-/* line 164, app.scss */
+/* line 168, app.scss */
 body.pullup-mode hgroup h1 {
   display: block; }
-/* line 168, app.scss */
+/* line 172, app.scss */
 body.pullup-mode #hitzone {
   transform: translate3d(0, -150px, 0) !important; }
