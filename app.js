@@ -103,8 +103,7 @@ $(function(){
         }, TIMEOUT_VAL);
         setTimeout(function() {
     	    $hitzone.removeClass('return');
-            lockedIn = false;
-    	}, TIMEOUT_VAL * 4);
+    	}, TIMEOUT_VAL * 5);
     }
 
     var carousel = new Carousel("#carousel");
