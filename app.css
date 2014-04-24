@@ -44,79 +44,82 @@ hgroup {
   position: absolute;
   width: 100%;
   min-height: 50%;
-  padding: 25px;
-  z-index: 0; }
-  /* line 57, app.scss */
+  padding: 25px; }
+  /* line 56, app.scss */
   hgroup > * {
     margin: 0;
     font-family: 'Vollkorn', serif;
     font-weight: 400;
     color: white; }
-  /* line 63, app.scss */
+  /* line 62, app.scss */
   hgroup .cancel {
     position: absolute;
-    padding: 0 15px;
-    line-height: 40px;
-    font-size: 20px;
+    padding: 0 17px;
+    line-height: 43px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Roboto", san-serif;
+    text-transform: lowercase;
     cursor: pointer;
     display: none; }
-  /* line 72, app.scss */
+  /* line 74, app.scss */
   hgroup h2 {
     font-family: "Roboto", san-serif;
-    font-size: 13px; }
-  /* line 76, app.scss */
+    font-size: 14px;
+    font-weight: 300; }
+  /* line 79, app.scss */
   hgroup h1 {
     font-weight: 700;
     font-size: 25px;
     text-align: center;
     display: none; }
 
-/* line 84, app.scss */
+/* line 87, app.scss */
 #pull-down {
   top: 0;
   left: 0;
   background: #1c1c1c; }
-  /* line 89, app.scss */
+  /* line 92, app.scss */
   #pull-down .cancel {
     top: 0;
     right: 0;
-    background: #363636;
+    background: #2e2e2e;
     color: rgba(255, 255, 255, 0.7); }
-  /* line 95, app.scss */
-  #pull-down h2 {
-    color: dimgrey; }
   /* line 98, app.scss */
+  #pull-down h2 {
+    color: #757575; }
+  /* line 101, app.scss */
   #pull-down h1 {
-    margin: 40px 0 0 0; }
+    margin: 45px 0 0 0; }
 
-/* line 103, app.scss */
+/* line 106, app.scss */
 #pull-up {
   bottom: 0;
   left: 0;
-  background: #0077ea; }
-  /* line 108, app.scss */
+  background: mediumseagreen; }
+  /* line 111, app.scss */
   #pull-up .cancel {
     bottom: 0;
     right: 0;
-    background: dodgerblue;
-    color: rgba(255, 255, 255, 0.8); }
-  /* line 114, app.scss */
+    background: #339860;
+    color: #091a11; }
+  /* line 117, app.scss */
   #pull-up h2 {
-    color: white;
+    color: #194c30;
     position: absolute;
     bottom: 25px; }
-  /* line 119, app.scss */
+  /* line 122, app.scss */
   #pull-up h1 {
+    color: #143d26;
     margin: 0;
     position: absolute;
-    bottom: 80px;
+    bottom: 82px;
     left: 0;
     width: 100%; }
 
-/* line 128, app.scss */
+/* line 132, app.scss */
 #hitzone {
   position: absolute;
-  z-index: 1;
   width: 100%;
   height: 100%;
   left: 0;
@@ -125,31 +128,31 @@ hgroup {
   transition-property: transform;
   transition-duration: 0s;
   transition-timing-function: ease-in-out; }
-  /* line 141, app.scss */
+  /* line 144, app.scss */
   #hitzone.return {
     transition-duration: 200ms; }
 
-/* line 149, app.scss */
+/* line 152, app.scss */
 body.pulldown-mode hgroup .cancel {
   display: block; }
-/* line 152, app.scss */
+/* line 155, app.scss */
 body.pulldown-mode hgroup h1 {
   display: block; }
-/* line 156, app.scss */
+/* line 159, app.scss */
 body.pulldown-mode #hitzone {
   transform: translate3d(0, 150px, 0) !important; }
 
-/* line 163, app.scss */
+/* line 166, app.scss */
 body.pullup-mode hgroup .cancel {
   display: block; }
-/* line 166, app.scss */
+/* line 169, app.scss */
 body.pullup-mode hgroup h1 {
   display: block; }
-/* line 170, app.scss */
+/* line 173, app.scss */
 body.pullup-mode #hitzone {
   transform: translate3d(0, -150px, 0) !important; }
 
-/* line 175, app.scss */
+/* line 178, app.scss */
 #carousel, #carousel ul, #carousel li {
   min-height: 100%;
   height: 100%;
@@ -157,7 +160,7 @@ body.pullup-mode #hitzone {
   margin: 0;
   position: relative; }
 
-/* line 183, app.scss */
+/* line 186, app.scss */
 #carousel {
   background: #9a9a9a;
   overflow: hidden;
@@ -166,31 +169,31 @@ body.pullup-mode #hitzone {
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   transform-style: preserve-3d; }
 
-/* line 192, app.scss */
+/* line 195, app.scss */
 #carousel ul.animate {
   transition: all .3s; }
 
-/* line 196, app.scss */
+/* line 199, app.scss */
 #carousel ul {
   transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
   overflow: hidden;
   backface-visibility: hidden;
   transform-style: preserve-3d; }
 
-/* line 205, app.scss */
+/* line 208, app.scss */
 #carousel ul {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   position: relative; }
 
-/* line 211, app.scss */
+/* line 214, app.scss */
 #carousel li {
   float: left;
   overflow: hidden;
   transform-style: preserve-3d;
   transform: translate3d(0, 0, 0); }
 
-/* line 218, app.scss */
+/* line 221, app.scss */
 #carousel li h2 {
   color: #fff;
   font-size: 30px;
@@ -201,22 +204,22 @@ body.pullup-mode #hitzone {
   width: 100%;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2); }
 
-/* line 229, app.scss */
+/* line 232, app.scss */
 #carousel li.pane1 {
   background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%); }
 
-/* line 230, app.scss */
+/* line 233, app.scss */
 #carousel li.pane2 {
   background: #4986e7; }
 
-/* line 231, app.scss */
+/* line 234, app.scss */
 #carousel li.pane3 {
   background: #d06b64; }
 
-/* line 232, app.scss */
+/* line 235, app.scss */
 #carousel li.pane4 {
   background: #cd74e6; }
 
-/* line 233, app.scss */
+/* line 236, app.scss */
 #carousel li.pane5 {
   background: #9fe1e7; }
