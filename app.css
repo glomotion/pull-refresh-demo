@@ -171,7 +171,7 @@ body.pullup-mode #hitzone {
 
 /* line 195, app.scss */
 #carousel ul.animate {
-  transition: all .3s; }
+  transition: transform .3s; }
 
 /* line 199, app.scss */
 #carousel ul {
