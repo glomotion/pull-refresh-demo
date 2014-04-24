@@ -159,7 +159,7 @@ body.pullup-mode #hitzone {
 
 /* line 183, app.scss */
 #carousel {
-  background: silver;
+  background: #9a9a9a;
   overflow: hidden;
   width: 100%;
   backface-visibility: hidden;
@@ -179,8 +179,8 @@ body.pullup-mode #hitzone {
 
 /* line 205, app.scss */
 #carousel ul {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   position: relative; }
 
 /* line 211, app.scss */

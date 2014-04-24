@@ -181,7 +181,7 @@ body.pullup-mode {
 }
 
 #carousel {
-    background: silver;
+    background: darken(silver, 15%);
     overflow: hidden;
     width: 100%;
     backface-visibility: hidden;
@@ -203,8 +203,8 @@ body.pullup-mode {
 }
 
 #carousel ul {
-    box-shadow: 0 0 20px rgba(0,0,0,.2);
-    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
     position: relative;
 }
 
