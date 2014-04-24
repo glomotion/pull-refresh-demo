@@ -35,12 +35,15 @@ Vollkorn
 body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
 
 	// OSX Font aliasing:
 	-webkit-font-smoothing: antialiased; // Chrome/Safari font aliasing
 	-moz-osx-font-smoothing: grayscale; // Firefox font aliasing
 
 	font-family: "Roboto", san-serif;
+
+	overflow: hidden;
 }
 
 hgroup {

@@ -7,7 +7,7 @@ $(function(){
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
 	
-	var pullDownMode, pullUpMode;
+	var pullDownMode, pullUpMode, lockedIn, translateAmount;
     
     $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
         handleHammer(ev);  
@@ -36,9 +36,11 @@ $(function(){
 			    });
 			    if (pullDownMode) {
                 	$body.addClass('pulldown-mode');
+                    lockedIn = true;
                 }
                 if (pullUpMode) {
                 	$body.addClass('pullup-mode');
+                    lockedIn = true;
                 }
 			    setTimeout(function() {
 			        $hitzone.removeClass('return');
@@ -49,37 +51,41 @@ $(function(){
             // when we dragdown
             case 'dragdown':
 
-            	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+            	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
+
+                if (pullUpMode && lockedIn) {
+                    resetModes();
+                }
 
        			$hitzone.css({
 			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
 			    });
-			    if (translateAmount >= BREAKPOINT) {
+			    
+                if (!lockedIn && translateAmount >= BREAKPOINT) {
 			    	pullDownMode = true;
+                    translateAmount = 0;
 			    }
-			    if (pullUpMode) {
-			    	resetModes();
-			    }
-
+			    
                 break;
 
 
             // when we dragup
             case 'dragup':
 
-            	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+            	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
+
+                if (pullDownMode && lockedIn) {
+                    resetModes();
+                }
 
        			$hitzone.css({
 			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
 			    });
 
-			    if (translateAmount <= -BREAKPOINT) {
+			    if (!lockedIn && translateAmount <= -BREAKPOINT) {
 			    	pullUpMode = true;
-			    }
-			    if (pullDownMode) {
-			    	resetModes();
 			    }
                 
                 break;
@@ -93,8 +99,16 @@ $(function(){
     	pullDownMode = false;
     	pullUpMode = false;
     	setTimeout(function() {
+            lockedIn = false;
+        }, TIMEOUT_VAL);
+        setTimeout(function() {
     	    $hitzone.removeClass('return');
-    	}, TIMEOUT_VAL);
+            lockedIn = false;
+    	}, TIMEOUT_VAL * 4);
     }
 
-})
+});
+
+
+
+
