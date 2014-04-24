@@ -173,7 +173,7 @@ function Carousel(element) {
             container.addClass("animate");
         }
 
-        $(container).css({
+        container.css({
             "transform" : "translate3d("+ percent +"%,0,0)"
         });
     }
