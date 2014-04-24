@@ -122,30 +122,101 @@ hgroup {
   left: 0;
   top: 0;
   text-align: center;
-  background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%);
   transition-property: transform;
   transition-duration: 0s;
   transition-timing-function: ease-in-out; }
-  /* line 142, app.scss */
+  /* line 143, app.scss */
   #hitzone.return {
     transition-duration: 200ms; }
 
-/* line 150, app.scss */
+/* line 151, app.scss */
 body.pulldown-mode hgroup .cancel {
   display: block; }
-/* line 153, app.scss */
+/* line 154, app.scss */
 body.pulldown-mode hgroup h1 {
   display: block; }
-/* line 157, app.scss */
+/* line 158, app.scss */
 body.pulldown-mode #hitzone {
   transform: translate3d(0, 150px, 0) !important; }
 
-/* line 164, app.scss */
+/* line 165, app.scss */
 body.pullup-mode hgroup .cancel {
   display: block; }
-/* line 167, app.scss */
+/* line 168, app.scss */
 body.pullup-mode hgroup h1 {
   display: block; }
-/* line 171, app.scss */
+/* line 172, app.scss */
 body.pullup-mode #hitzone {
   transform: translate3d(0, -150px, 0) !important; }
+
+/* line 177, app.scss */
+#carousel, #carousel ul, #carousel li {
+  min-height: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative; }
+
+/* line 185, app.scss */
+#carousel {
+  background: silver;
+  overflow: hidden;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  transform-style: preserve-3d; }
+
+/* line 194, app.scss */
+#carousel ul.animate {
+  transition: all .3s; }
+
+/* line 198, app.scss */
+#carousel ul {
+  transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d; }
+
+/* line 207, app.scss */
+#carousel ul {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative; }
+
+/* line 213, app.scss */
+#carousel li {
+  float: left;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0); }
+
+/* line 220, app.scss */
+#carousel li h2 {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2); }
+
+/* line 231, app.scss */
+#carousel li.pane1 {
+  background: #42d692; }
+
+/* line 232, app.scss */
+#carousel li.pane2 {
+  background: #4986e7; }
+
+/* line 233, app.scss */
+#carousel li.pane3 {
+  background: #d06b64; }
+
+/* line 234, app.scss */
+#carousel li.pane4 {
+  background: #cd74e6; }
+
+/* line 235, app.scss */
+#carousel li.pane5 {
+  background: #9fe1e7; }
