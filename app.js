@@ -1,13 +1,13 @@
 $(function(){
 
 	var TIMEOUT_VAL = 200;
-	var BREAKPOINT = 65;
+	var BREAKPOINT = 70;
 	var TRANSLATE_RATIO = .4;
 
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
 	
-	var pullDownMode, pullUpMode;
+	var pullDownMode, pullUpMode, lockedIn, translateAmount;
     
     $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
         handleHammer(ev);  
@@ -18,27 +18,29 @@ $(function(){
     });
 	
     /**
-     * Handle HammerJS event handler
-     * @param ev: the current gesture event object
+     * Handle HammerJS callback
+     * @param ev
      */
     function handleHammer(ev) {
 
-    	// stops browser scroll events &
-    	// fixes much flakyness in Clank...
+    	// stop browser scrolling
+    	// fixes much flakyness on Clank...
         ev.gesture.preventDefault();
         
         switch(ev.type) {
 
-            // on release we check if we dragged enough to warrant a mode switch
+            // on release we check how far we dragged
             case 'release':
                 $hitzone.addClass('return').css({
 			    	"transform" : "translate3d(0,0,0)"
 			    });
 			    if (pullDownMode) {
                 	$body.addClass('pulldown-mode');
+                    lockedIn = true;
                 }
                 if (pullUpMode) {
                 	$body.addClass('pullup-mode');
+                    lockedIn = true;
                 }
 			    setTimeout(function() {
 			        $hitzone.removeClass('return');
@@ -46,40 +48,44 @@ $(function(){
                 break;
 
 
-            // when we dragdown ...
+            // when we dragdown
             case 'dragdown':
 
-            	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+            	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
+
+                if (pullUpMode && lockedIn) {
+                    resetModes();
+                }
 
        			$hitzone.css({
 			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
 			    });
-			    if (translateAmount >= BREAKPOINT) {
+			    
+                if (!lockedIn && translateAmount >= BREAKPOINT) {
 			    	pullDownMode = true;
+                    translateAmount = 0;
 			    }
-			    if (pullUpMode) {
-			    	resetModes();
-			    }
-
+			    
                 break;
 
 
-            // when we dragup ...
+            // when we dragup
             case 'dragup':
 
-            	var translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+            	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
             	console.log(translateAmount);
+
+                if (pullDownMode && lockedIn) {
+                    resetModes();
+                }
 
        			$hitzone.css({
 			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
 			    });
 
-			    if (translateAmount <= -BREAKPOINT) {
+			    if (!lockedIn && translateAmount <= -BREAKPOINT) {
 			    	pullUpMode = true;
-			    }
-			    if (pullDownMode) {
-			    	resetModes();
 			    }
                 
                 break;
@@ -87,15 +93,22 @@ $(function(){
 
     }
 
-    // A simple reset function, to toggle the mode back to normal mode
     function resetModes() {
     	$hitzone.attr('class','return');
     	$body.attr('class','');
     	pullDownMode = false;
     	pullUpMode = false;
     	setTimeout(function() {
+            lockedIn = false;
+        }, TIMEOUT_VAL);
+        setTimeout(function() {
     	    $hitzone.removeClass('return');
-    	}, TIMEOUT_VAL);
+            lockedIn = false;
+    	}, TIMEOUT_VAL * 4);
     }
 
-})
+});
+
+
+
+
