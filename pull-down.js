@@ -8,7 +8,7 @@ $(function(){
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
 	
-	var pullDownMode, translateAmount, firstDragUp, lockedIn;
+	var pullDownMode, translateAmount, lockedIn;
     var offset = 0;
     
     $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
@@ -20,8 +20,8 @@ $(function(){
     });
 	
     /**
-     * Handle HammerJS callback
-     * @param ev
+     * Vertical pull handler function
+     * @param ev: the full event instance
      */
     function vertPullHandler(ev) {
 
