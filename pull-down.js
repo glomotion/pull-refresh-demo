@@ -1,27 +1,32 @@
 $(function(){
 
+    // establish some fixed variables (basic settings)
 	var TIMEOUT_VAL = 200;
 	var BREAKPOINT = 70;
     var LOCK_OFFSET = 150;
 	var TRANSLATE_RATIO = .4;
 
+    // create the JQ dom objects that we'll be operated on
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
     var $pulldown = $('#pull-down');
 	
+    // some misc global vars that change (switches mostly)
 	var pullDownMode, translateAmount, lockedIn;
     var offset = 0;
     
+    // setup the event listeners
     $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
         vertPullHandler(ev);  
     });
 
+    // a simple cancel button
     $('.cancel').hammer().on('tap', function() {
         resetMode();
     });
 	
     /**
-     * Vertical pull handler function
+     * Vertical pull event handler
      * @param ev: the full event instance
      */
     function vertPullHandler(ev) {
