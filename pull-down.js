@@ -7,6 +7,7 @@ $(function(){
 
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
+    var $pulldown = $('#pull-down');
 	
 	var pullDownMode, translateAmount, lockedIn;
     var offset = 0;
@@ -37,6 +38,7 @@ $(function(){
 			    	"transform" : "translate3d(0,0,0)"
 			    });
 			    if (pullDownMode) {
+                    $pulldown.attr('data-percent','100');
                 	$body.addClass('pulldown-mode');
                     $hitzone.css({
                         "transform" : "translate3d(0," + LOCK_OFFSET + "px,0)"
@@ -68,6 +70,12 @@ $(function(){
                     if (translateAmount >= BREAKPOINT) {
                         pullDownMode = true;
                     }
+                } else {
+                    var percentComplete = (100 / BREAKPOINT) * translateAmount;
+                    if (percentComplete <= 101 && percentComplete > 0) {
+                        // animate thru the animation
+                        $pulldown.attr('data-percent',Math.floor(percentComplete));
+                    }
                 }
                 $hitzone.css({
                     "transform" : "translate3d(0," + translateAmount + "px,0)"
@@ -85,6 +93,12 @@ $(function(){
                     // temporarily disable pulldown mode and allow dragging
                     $body.removeClass('pulldown-mode');
                     translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO + LOCK_OFFSET;
+                } else {
+                    var percentComplete = (101 / BREAKPOINT) * translateAmount;
+                    if (percentComplete <= 100 && percentComplete > 0) {
+                        // animate thru the animation
+                        $pulldown.attr('data-percent',Math.floor(percentComplete));
+                    }
                 }
                 if (translateAmount <= BREAKPOINT) {
                     pullDownMode = false;
@@ -105,6 +119,7 @@ $(function(){
     	pullDownMode = false;
         lockedIn = false;
         offset = 0;
+        $pulldown.attr('data-percent','0');
         setTimeout(function() {
     	    $hitzone.removeClass('return');
     	}, TIMEOUT_VAL);
