@@ -5,11 +5,13 @@
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* line 11, pull-down.scss */
 html, body {
-  height: 100%; }
+  height: 100%;
+}
 
 /* 
 
@@ -38,62 +40,151 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto", san-serif;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /* line 50, pull-down.scss */
 hgroup {
   position: absolute;
   width: 100%;
   min-height: 50%;
-  padding: 25px; }
-  /* line 57, pull-down.scss */
-  hgroup > * {
-    margin: 0;
-    font-family: 'Vollkorn', serif;
-    font-weight: 400;
-    color: white; }
-  /* line 63, pull-down.scss */
-  hgroup .cancel {
-    position: absolute;
-    padding: 0 17px;
-    line-height: 43px;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: "Roboto", san-serif;
-    text-transform: lowercase;
-    cursor: pointer;
-    display: none; }
-  /* line 75, pull-down.scss */
-  hgroup h2 {
-    font-family: "Roboto", san-serif;
-    font-size: 14px;
-    font-weight: 300; }
-  /* line 80, pull-down.scss */
-  hgroup h1 {
-    font-weight: 700;
-    font-size: 25px;
-    text-align: center;
-    display: none; }
+  padding: 25px;
+}
+/* line 57, pull-down.scss */
+hgroup > * {
+  margin: 0;
+  font-family: 'Vollkorn', serif;
+  font-weight: 400;
+  color: white;
+}
+/* line 63, pull-down.scss */
+hgroup .cancel {
+  position: absolute;
+  padding: 0 17px;
+  line-height: 43px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Roboto", san-serif;
+  text-transform: lowercase;
+  cursor: pointer;
+  display: none;
+}
+/* line 75, pull-down.scss */
+hgroup h2 {
+  font-family: "Roboto", san-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+/* line 81, pull-down.scss */
+hgroup h2 strong:before {
+  content: "Pull down ";
+}
+/* line 86, pull-down.scss */
+hgroup h1 {
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+  display: none;
+}
 
-/* line 88, pull-down.scss */
+/* line 94, pull-down.scss */
 #pull-down {
   top: 0;
   left: 0;
-  background: #1c1c1c; }
-  /* line 93, pull-down.scss */
-  #pull-down .cancel {
-    top: 0;
-    right: 0;
-    background: #2e2e2e;
-    color: rgba(255, 255, 255, 0.7); }
-  /* line 99, pull-down.scss */
-  #pull-down h2 {
-    color: #757575; }
-  /* line 102, pull-down.scss */
-  #pull-down h1 {
-    margin: 45px 0 0 0; }
+  background: #1c1c1c;
+}
+/* line 99, pull-down.scss */
+#pull-down:before {
+  content: "";
+  width: 0;
+  height: 5px;
+  position: absolute;
+  background: dimgrey;
+  top: 0;
+  left: 0;
+  transition-property: width, opacity;
+  transition-duration: .1s;
+  transition-delay: 0, 0;
+  transition-timing-function: ease-in-out;
+}
+/* line 114, pull-down.scss */
+#pull-down .cancel {
+  top: 0;
+  right: 0;
+  background: #2e2e2e;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 120, pull-down.scss */
+#pull-down h2 {
+  color: #757575;
+  transition-property: opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
+}
+/* line 127, pull-down.scss */
+#pull-down h1 {
+  margin: 45px 0 0 0;
+}
+/* line 132, pull-down.scss */
+#pull-down[data-percent="100"]:before {
+  transition-delay: 0, .5s;
+  opacity: 0;
+}
+/* line 136, pull-down.scss */
+#pull-down[data-percent="100"] h2 {
+  transition-delay: .5s;
+  opacity: 0;
+}
+/* line 141, pull-down.scss */
+#pull-down[data-percent="100"] h2 strong:before {
+  content: "Release ";
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='0']:before {
+  width: 0%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='10']:before {
+  width: 10%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='20']:before {
+  width: 20%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='30']:before {
+  width: 30%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='40']:before {
+  width: 40%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='50']:before {
+  width: 50%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='60']:before {
+  width: 60%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='70']:before {
+  width: 70%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='80']:before {
+  width: 80%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='90']:before {
+  width: 90%;
+}
+/* line 152, pull-down.scss */
+#pull-down[data-percent='100']:before {
+  width: 100%;
+}
 
-/* line 107, pull-down.scss */
+/* line 161, pull-down.scss */
 #hitzone {
   position: absolute;
   width: 100%;
@@ -105,59 +196,73 @@ hgroup {
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   transition-property: transform;
   transition-duration: 0s;
-  transition-timing-function: ease-in-out; }
-  /* line 120, pull-down.scss */
-  #hitzone.return {
-    transition-duration: 200ms; }
+  transition-timing-function: ease-in-out;
+}
+/* line 176, pull-down.scss */
+#hitzone.return {
+  transition-duration: 200ms;
+}
 
-/* line 128, pull-down.scss */
+/* line 184, pull-down.scss */
 body.pulldown-mode hgroup .cancel {
-  display: block; }
-/* line 131, pull-down.scss */
+  display: block;
+}
+/* line 187, pull-down.scss */
 body.pulldown-mode hgroup h1 {
-  display: block; }
+  display: block;
+}
+/* line 192, pull-down.scss */
+body.pulldown-mode hgroup h2 strong:before {
+  content: "Release ";
+}
 
-/* line 138, pull-down.scss */
+/* line 201, pull-down.scss */
 #carousel, #carousel ul, #carousel li {
   min-height: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  position: relative; }
+  position: relative;
+}
 
-/* line 146, pull-down.scss */
+/* line 209, pull-down.scss */
 #carousel {
   background: #9a9a9a;
   overflow: hidden;
   width: 100%;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-  transform-style: preserve-3d; }
+  transform-style: preserve-3d;
+}
 
-/* line 156, pull-down.scss */
+/* line 219, pull-down.scss */
 #carousel ul.animate {
-  transition: transform .3s; }
+  transition: transform .3s;
+}
 
-/* line 160, pull-down.scss */
+/* line 223, pull-down.scss */
 #carousel ul {
   transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
   overflow: hidden;
   backface-visibility: hidden;
-  transform-style: preserve-3d; }
+  transform-style: preserve-3d;
+}
 
-/* line 169, pull-down.scss */
+/* line 232, pull-down.scss */
 #carousel ul {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  position: relative; }
+  position: relative;
+}
 
-/* line 174, pull-down.scss */
+/* line 237, pull-down.scss */
 #carousel li {
   float: left;
   overflow: hidden;
   transform-style: preserve-3d;
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+}
 
-/* line 181, pull-down.scss */
+/* line 244, pull-down.scss */
 #carousel li h2 {
   color: #fff;
   font-size: 30px;
@@ -166,24 +271,30 @@ body.pulldown-mode hgroup h1 {
   top: 40%;
   left: 0;
   width: 100%;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); }
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
 
-/* line 192, pull-down.scss */
+/* line 255, pull-down.scss */
 #carousel li.pane1 {
-  background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%); }
+  background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%);
+}
 
-/* line 193, pull-down.scss */
+/* line 256, pull-down.scss */
 #carousel li.pane2 {
-  background: #4986e7; }
+  background: #4986e7;
+}
 
-/* line 194, pull-down.scss */
+/* line 257, pull-down.scss */
 #carousel li.pane3 {
-  background: #d06b64; }
+  background: #d06b64;
+}
 
-/* line 195, pull-down.scss */
+/* line 258, pull-down.scss */
 #carousel li.pane4 {
-  background: #cd74e6; }
+  background: #cd74e6;
+}
 
-/* line 196, pull-down.scss */
+/* line 259, pull-down.scss */
 #carousel li.pane5 {
-  background: #9fe1e7; }
+  background: #9fe1e7;
+}

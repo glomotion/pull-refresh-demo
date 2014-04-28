@@ -76,6 +76,12 @@ hgroup {
 		font-family: "Roboto", san-serif;
 		font-size: 14px;
 		font-weight: 300;
+
+		strong {
+			&:before {
+				content: "Pull down "
+			}
+		}
 	}
 	h1 {
 		font-weight: 700;
@@ -90,6 +96,21 @@ hgroup {
 	top: 0; left: 0;
 	background: lighten(#1c1c1c, 0%);
 	
+	&:before {
+		content: "";
+		width: 0;
+		height: 5px;
+		position: absolute;
+		background: lighten(#1c1c1c, 30%);
+		top: 0;
+		left: 0;
+		
+		transition-property: width, opacity;
+		transition-duration: .1s;
+		transition-delay: 0, 0;
+		transition-timing-function: ease-in-out;
+	}
+
 	.cancel {
 		top: 0; right: 0;
 		background: lighten(#1c1c1c, 7%);
@@ -98,11 +119,44 @@ hgroup {
 	
 	h2 {
 		color: lighten(#1c1c1c, 35%);
+
+		transition-property: opacity;
+		transition-duration: .5s;
+		transition-timing-function: ease-in-out;
 	}
 	h1 {
 		margin: 45px 0 0 0;
 	}
+
+	&[data-percent="100"] {
+		&:before {
+			transition-delay: 0, .5s;
+			opacity: 0;
+		}
+		h2 {
+
+			transition-delay: .5s;
+			opacity: 0; 
+
+			strong:before {
+				content: "Release ";
+			}
+		}
+	}
+
+	$step: 10;
+	$loops: round(100 / $step);
+
+	@for $i from 0 through $loops {
+		&[data-percent='#{$i * $step}'] {
+			&:before {
+				width: $i * 10%;
+			}
+		}
+	}
 }
+
+
 
 #hitzone {
 	position: absolute;
@@ -132,6 +186,13 @@ body.pulldown-mode {
 		}
 		h1 {
 			display: block;
+		}
+		h2 {
+			strong {
+				&:before {
+					content: "Release "
+				}
+			}
 		}
 	}
 }
