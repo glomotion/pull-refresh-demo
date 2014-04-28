@@ -2,19 +2,21 @@ $(function(){
 
 	var TIMEOUT_VAL = 200;
 	var BREAKPOINT = 70;
+    var LOCK_OFFSET = 150;
 	var TRANSLATE_RATIO = .4;
 
 	var $body = $('body');
 	var $hitzone = $('#hitzone');
 	
-	var pullDownMode, pullUpMode, lockedIn, translateAmount;
+	var pullUpMode, translateAmount, firstDragUp, lockedIn;
+    var offset = 0;
     
     $hitzone.hammer().on('touch dragdown dragup release', function(ev) {
         vertPullHandler(ev);  
     });
 
     $('.cancel').hammer().on('tap', function() {
-        resetModes();
+        resetMode();
     });
 	
     /**
@@ -29,18 +31,19 @@ $(function(){
         
         switch(ev.type) {
 
-            // on release we check how far we dragged
+            // on release we check how far we dragged + reset if no mode change is present
             case 'release':
                 $hitzone.addClass('return').css({
 			    	"transform" : "translate3d(0,0,0)"
 			    });
-			    if (pullDownMode) {
-                	$body.addClass('pulldown-mode');
-                    lockedIn = true;
-                }
-                if (pullUpMode) {
+			    if (pullUpMode) {
                 	$body.addClass('pullup-mode');
+                    $hitzone.css({
+                        "transform" : "translate3d(0,-"+ LOCK_OFFSET +"px,0)"
+                    });
                     lockedIn = true;
+                } else {
+                    resetMode();
                 }
 			    setTimeout(function() {
 			        $hitzone.removeClass('return');
@@ -51,57 +54,66 @@ $(function(){
             // when we dragdown
             case 'dragdown':
 
-            	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
-            	console.log(translateAmount);
-
-                if (pullUpMode && lockedIn) {
-                    resetModes();
+                // console.log('draggin up',pullUpMode);
+                translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+                if (translateAmount <= BREAKPOINT) {
+                    pullUpMode = false;
                 }
-
-       			$hitzone.css({
-			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
-			    });
-			    
-                if (!lockedIn && translateAmount >= BREAKPOINT) {
-			    	pullDownMode = true;
-                    translateAmount = 0;
-			    }
-			    
+                if (lockedIn) {
+                    // temporarily disable pulldown mode and allow dragging
+                    $body.removeClass('pulldown-mode');
+                    translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO - LOCK_OFFSET;
+                }
+                if (translateAmount >= BREAKPOINT) {
+                    pullUpMode = false;
+                }
+                $hitzone.css({
+                    "transform" : "translate3d(0," + translateAmount + "px,0)"
+                });
                 break;
 
 
             // when we dragup
             case 'dragup':
 
-            	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
-            	console.log(translateAmount);
-
-                if (pullDownMode && lockedIn) {
-                    resetModes();
+                translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+                // console.log(translateAmount);
+                if (translateAmount <= BREAKPOINT) {
+                    pullUpMode = true;
                 }
-
-       			$hitzone.css({
-			    	"transform" : "translate3d(0," + translateAmount + "px,0)"
-			    });
-
-			    if (!lockedIn && translateAmount <= -BREAKPOINT) {
-			    	pullUpMode = true;
-			    }
-                
+                if (lockedIn) {
+                    // temporarily disable pulldown mode and allow dragging
+                    $body.removeClass('pullup-mode');
+                    if (offset === 0) {
+                        offset = LOCK_OFFSET;
+                    }
+                    translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO - offset;
+                    if (translateAmount <= BREAKPOINT) {
+                        pullUpMode = true;
+                    }
+                }
+                $hitzone.css({
+                    "transform" : "translate3d(0," + translateAmount + "px,0)"
+                });
                 break;
+
+
+                
         }
 
     }
 
-    function resetModes() {
-    	$hitzone.attr('class','return');
+    function resetMode() {
+        $hitzone.attr('class','return').css({
+            "transform" : "translate3d(0,0,0)"
+        });
     	$body.attr('class','');
-    	pullDownMode = false;
     	pullUpMode = false;
+        lockedIn = false;
+        offset = 0;
         setTimeout(function() {
-            lockedIn = false;
     	    $hitzone.removeClass('return');
-    	}, TIMEOUT_VAL * 2);
+    	}, TIMEOUT_VAL);
     }
 
     var carousel = new Carousel("#carousel");
@@ -182,7 +194,8 @@ function Carousel(element) {
 
     function horizPullHandler(ev) {
 
-        // disable browser scrolling
+        // stop browser scrolling
+        // fixes much flakyness on Clank...
         ev.gesture.preventDefault();
 
         switch(ev.type) {

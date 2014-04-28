@@ -36,6 +36,7 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	background: darken(silver, 15%);
 
 	// OSX Font aliasing:
 	-webkit-font-smoothing: antialiased; // Chrome/Safari font aliasing
@@ -44,12 +45,6 @@ body {
 	font-family: "Roboto", san-serif;
 
 	overflow: hidden;
-
-	&#pull-down {
-		#hit-zone {
-			background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 50%,rgba(125,185,232,1) 100%);
-		}
-	}
 }
 
 hgroup {
@@ -109,32 +104,6 @@ hgroup {
 	}
 }
 
-#pull-up {
-
-	bottom: 0; left: 0;
-	background: darken(mediumseagreen, 0%);
-	
-	.cancel {
-		bottom: 0; right: 0;
-		background: darken(mediumseagreen, 7%);
-		color: darken(mediumseagreen, 40%);
-	}
-	
-	h2 {
-		color: darken(mediumseagreen, 27%);
-		position: absolute;
-		bottom: 25px;
-	}
-	h1 {
-		color: darken(mediumseagreen, 31%);
-		margin: 0;
-		position: absolute;
-		bottom: 82px;
-		left: 0;
-		width: 100%;
-	}
-}
-
 #hitzone {
 	position: absolute;
 	width: 100%;
@@ -142,7 +111,8 @@ hgroup {
 	left: 0;
 	top: 0;
 	text-align: center;
-	
+	box-shadow: 0 0 12px rgba(0,0,0,.3);
+	transform: translate3d(0,0,0) scale3d(1,1,1);
 	transition-property: transform;
 	transition-duration: 0s;
 	transition-timing-function: ease-in-out;
@@ -162,24 +132,8 @@ body.pulldown-mode {
 			display: block;
 		}
 	}
-	#hitzone {
-		transform: translate3d( 0,150px,0 ) !important;
-	}
 }
 
-body.pullup-mode {
-	hgroup {
-		.cancel {
-			display: block;
-		}
-		h1 {
-			display: block;
-		}
-	}
-	#hitzone {
-		transform: translate3d( 0,-150px,0 ) !important;
-	}
-}
 
 #carousel, #carousel ul, #carousel li {
     min-height: 100%;
@@ -193,6 +147,7 @@ body.pullup-mode {
     background: darken(silver, 15%);
     overflow: hidden;
     width: 100%;
+
     backface-visibility: hidden;
     transform: translate3d(0,0,0) scale3d(1,1,1);
     transform-style: preserve-3d;
@@ -212,7 +167,6 @@ body.pullup-mode {
 }
 
 #carousel ul {
-    box-shadow: 0 0 20px rgba(0,0,0,.3);
     box-shadow: 0 0 20px rgba(0,0,0,.3);
     position: relative;
 }
