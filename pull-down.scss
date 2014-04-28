@@ -99,9 +99,9 @@ hgroup {
 	&:before {
 		content: "";
 		width: 0;
-		height: 5px;
+		height: 7px;
 		position: absolute;
-		background: lighten(#1c1c1c, 30%);
+		background: lighten(#1c1c1c, 26%);
 		top: 0;
 		left: 0;
 		
@@ -120,9 +120,9 @@ hgroup {
 	h2 {
 		color: lighten(#1c1c1c, 35%);
 
-		transition-property: opacity;
-		transition-duration: .5s;
-		transition-timing-function: ease-in-out;
+		&:after {
+			content: "to receive cards"
+		}
 	}
 	h1 {
 		margin: 45px 0 0 0;
@@ -134,9 +134,6 @@ hgroup {
 			opacity: 0;
 		}
 		h2 {
-
-			transition-delay: .5s;
-			opacity: 0; 
 
 			strong:before {
 				content: "Release ";
@@ -156,7 +153,38 @@ hgroup {
 	}
 }
 
-
+body {
+	&.pulldown-mode {
+		hgroup {
+			.cancel {
+				display: block;
+			}
+			h1 {
+				display: block;
+			}
+			h2 {
+				&:after {
+					content: "mode" !important;
+				}
+				strong {
+					&:before {
+						content: "Card receivership " !important;
+					}
+				}
+			}
+		}
+	}
+	&.return {
+		#pull-down {
+			&:before {
+				display: none;
+			}
+		}
+		#hitzone {
+			transition-duration: 200ms;
+		}
+	}
+}
 
 #hitzone {
 	position: absolute;
@@ -173,29 +201,11 @@ hgroup {
 	transition-duration: 0s;
 	transition-timing-function: ease-in-out;
 	
-	&.return {
-		transition-duration: 200ms;
-	}
+	
 }
 
 
-body.pulldown-mode {
-	hgroup {
-		.cancel {
-			display: block;
-		}
-		h1 {
-			display: block;
-		}
-		h2 {
-			strong {
-				&:before {
-					content: "Release "
-				}
-			}
-		}
-	}
-}
+
 
 
 #carousel, #carousel ul, #carousel li {

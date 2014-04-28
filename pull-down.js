@@ -39,7 +39,8 @@ $(function(){
 
             // on release we check how far we dragged + reset if no mode change is present
             case 'release':
-                $hitzone.addClass('return').css({
+                $body.addClass('return');
+                $hitzone.css({
 			    	"transform" : "translate3d(0,0,0)"
 			    });
 			    if (pullDownMode) {
@@ -53,7 +54,7 @@ $(function(){
                     resetMode();
                 }
 			    setTimeout(function() {
-			        $hitzone.removeClass('return');
+			        $body.removeClass('return');
 			    }, TIMEOUT_VAL);
                 
                 break;
@@ -117,16 +118,16 @@ $(function(){
     }
 
     function resetMode() {
-    	$hitzone.attr('class','return').css({
+    	$hitzone.css({
             "transform" : "translate3d(0,0,0)"
         });
-    	$body.attr('class','');
+    	$body.attr('class','return');
     	pullDownMode = false;
         lockedIn = false;
         offset = 0;
         $pulldown.attr('data-percent','0');
         setTimeout(function() {
-    	    $hitzone.removeClass('return');
+    	    $body.removeClass('return');
     	}, TIMEOUT_VAL);
     }
 

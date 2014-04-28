@@ -97,9 +97,9 @@ hgroup h1 {
 #pull-down:before {
   content: "";
   width: 0;
-  height: 5px;
+  height: 7px;
   position: absolute;
-  background: dimgrey;
+  background: #5e5e5e;
   top: 0;
   left: 0;
   transition-property: width, opacity;
@@ -117,9 +117,10 @@ hgroup h1 {
 /* line 120, pull-down.scss */
 #pull-down h2 {
   color: #757575;
-  transition-property: opacity;
-  transition-duration: .5s;
-  transition-timing-function: ease-in-out;
+}
+/* line 123, pull-down.scss */
+#pull-down h2:after {
+  content: "to receive cards";
 }
 /* line 127, pull-down.scss */
 #pull-down h1 {
@@ -130,61 +131,81 @@ hgroup h1 {
   transition-delay: 0, .5s;
   opacity: 0;
 }
-/* line 136, pull-down.scss */
-#pull-down[data-percent="100"] h2 {
-  transition-delay: .5s;
-  opacity: 0;
-}
-/* line 141, pull-down.scss */
+/* line 138, pull-down.scss */
 #pull-down[data-percent="100"] h2 strong:before {
   content: "Release ";
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='0']:before {
   width: 0%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='10']:before {
   width: 10%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='20']:before {
   width: 20%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='30']:before {
   width: 30%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='40']:before {
   width: 40%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='50']:before {
   width: 50%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='60']:before {
   width: 60%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='70']:before {
   width: 70%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='80']:before {
   width: 80%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='90']:before {
   width: 90%;
 }
-/* line 152, pull-down.scss */
+/* line 149, pull-down.scss */
 #pull-down[data-percent='100']:before {
   width: 100%;
 }
 
-/* line 161, pull-down.scss */
+/* line 159, pull-down.scss */
+body.pulldown-mode hgroup .cancel {
+  display: block;
+}
+/* line 162, pull-down.scss */
+body.pulldown-mode hgroup h1 {
+  display: block;
+}
+/* line 166, pull-down.scss */
+body.pulldown-mode hgroup h2:after {
+  content: "mode" !important;
+}
+/* line 170, pull-down.scss */
+body.pulldown-mode hgroup h2 strong:before {
+  content: "Card receivership " !important;
+}
+/* line 179, pull-down.scss */
+body.return #pull-down:before {
+  display: none;
+}
+/* line 183, pull-down.scss */
+body.return #hitzone {
+  transition-duration: 200ms;
+}
+
+/* line 189, pull-down.scss */
 #hitzone {
   position: absolute;
   width: 100%;
@@ -198,25 +219,8 @@ hgroup h1 {
   transition-duration: 0s;
   transition-timing-function: ease-in-out;
 }
-/* line 176, pull-down.scss */
-#hitzone.return {
-  transition-duration: 200ms;
-}
 
-/* line 184, pull-down.scss */
-body.pulldown-mode hgroup .cancel {
-  display: block;
-}
-/* line 187, pull-down.scss */
-body.pulldown-mode hgroup h1 {
-  display: block;
-}
-/* line 192, pull-down.scss */
-body.pulldown-mode hgroup h2 strong:before {
-  content: "Release ";
-}
-
-/* line 201, pull-down.scss */
+/* line 211, pull-down.scss */
 #carousel, #carousel ul, #carousel li {
   min-height: 100%;
   height: 100%;
@@ -225,7 +229,7 @@ body.pulldown-mode hgroup h2 strong:before {
   position: relative;
 }
 
-/* line 209, pull-down.scss */
+/* line 219, pull-down.scss */
 #carousel {
   background: #9a9a9a;
   overflow: hidden;
@@ -235,12 +239,12 @@ body.pulldown-mode hgroup h2 strong:before {
   transform-style: preserve-3d;
 }
 
-/* line 219, pull-down.scss */
+/* line 229, pull-down.scss */
 #carousel ul.animate {
   transition: transform .3s;
 }
 
-/* line 223, pull-down.scss */
+/* line 233, pull-down.scss */
 #carousel ul {
   transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
   overflow: hidden;
@@ -248,13 +252,13 @@ body.pulldown-mode hgroup h2 strong:before {
   transform-style: preserve-3d;
 }
 
-/* line 232, pull-down.scss */
+/* line 242, pull-down.scss */
 #carousel ul {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
-/* line 237, pull-down.scss */
+/* line 247, pull-down.scss */
 #carousel li {
   float: left;
   overflow: hidden;
@@ -262,7 +266,7 @@ body.pulldown-mode hgroup h2 strong:before {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 244, pull-down.scss */
+/* line 254, pull-down.scss */
 #carousel li h2 {
   color: #fff;
   font-size: 30px;
@@ -274,27 +278,27 @@ body.pulldown-mode hgroup h2 strong:before {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 255, pull-down.scss */
+/* line 265, pull-down.scss */
 #carousel li.pane1 {
   background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%);
 }
 
-/* line 256, pull-down.scss */
+/* line 266, pull-down.scss */
 #carousel li.pane2 {
   background: #4986e7;
 }
 
-/* line 257, pull-down.scss */
+/* line 267, pull-down.scss */
 #carousel li.pane3 {
   background: #d06b64;
 }
 
-/* line 258, pull-down.scss */
+/* line 268, pull-down.scss */
 #carousel li.pane4 {
   background: #cd74e6;
 }
 
-/* line 259, pull-down.scss */
+/* line 269, pull-down.scss */
 #carousel li.pane5 {
   background: #9fe1e7;
 }
