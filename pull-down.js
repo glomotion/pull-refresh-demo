@@ -78,8 +78,8 @@ $(function(){
                 } else {
                     var percentComplete = (100 / BREAKPOINT) * translateAmount;
                     if (percentComplete <= 101 && percentComplete > 0) {
-                        // animate thru the animation
-                        $pulldown.attr('data-percent',Math.floor(percentComplete));
+                        // animate thru the percentage levels
+                        $pulldown.attr('data-percent',Math.round(percentComplete / 10) * 10);
                     }
                 }
                 $hitzone.css({
@@ -102,7 +102,7 @@ $(function(){
                     var percentComplete = (101 / BREAKPOINT) * translateAmount;
                     if (percentComplete <= 100 && percentComplete > 0) {
                         // animate thru the animation
-                        $pulldown.attr('data-percent',Math.floor(percentComplete));
+                        $pulldown.attr('data-percent',Math.round(percentComplete / 10) * 10);
                     }
                 }
                 if (translateAmount <= BREAKPOINT) {
