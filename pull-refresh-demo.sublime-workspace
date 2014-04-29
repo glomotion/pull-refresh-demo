@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"pull",
+				"pull-down"
+			],
+			[
+				"perc",
+				"percentComplete"
+			],
+			[
 				"read",
 				"readWrite"
 			],
@@ -476,29 +484,26 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "pull-down.html",
 			"settings":
 			{
-				"buffer_size": 1028,
+				"buffer_size": 1376,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app.scss",
+			"file": "pull-down.js",
 			"settings":
 			{
-				"buffer_size": 597,
+				"buffer_size": 9875,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "$(function(){\n\n\n	var TIMEOUT_VAL = 200;\n	var $body = $('body');\n	var $hitzone = $('#hitzone');\n	var dragged_down, dragged_up;\n\n	var pullDownModeSwitch;\n    \n    $hitzone.hammer().on('touch dragdown dragup release', function(e) {\n        handleHammer(e);  \n    });\n	\n    /**\n     * Handle HammerJS callback\n     * @param ev\n     */\n    var handleHammer = function(ev) {\n\n    	// stop browser scrolling\n        ev.gesture.preventDefault();\n        \n        switch(ev.type) {\n\n            // reset element on start\n            case 'touch':\n\n                $hitzone.css({\n			    	\"transform\" : \"translate3d(0,0,0)\"\n			    });\n                break;\n\n\n            // on release we check how far we dragged\n            case 'release':\n	            \n	            if(!dragged_down && !dragged_up) {\n	                return;\n	            }\n                \n                if (pullDownModeSwitch) {\n\n                }\n                $body.addClass('pulldown-mode');\n\n                $hitzone.addClass('return').css({\n			    	\"transform\" : \"translate3d(0,0,0)\"\n			    });\n			    setTimeout(function() {\n			        $hitzone.removeClass('return')\n			    }, TIMEOUT_VAL);\n                break;\n\n\n\n            // when we dragdown\n            case 'dragdown':\n\n            	dragged_down = true;\n            	var translateAmount = ev.gesture.deltaY * .55;\n            	// console.log(translateAmount);\n\n       			$hitzone.css({\n			    	\"transform\" : \"translate3d(0,\" + translateAmount + \"px,0)\"\n			    });\n\n			    if (translateAmount >= 150) {\n			    	pullDownModeSwitch = true;\n			    }\n                \n                break;\n\n            // when we dragup\n            case 'dragup':\n\n            	dragged_up = true;\n            	var translateAmount = ev.gesture.deltaY * .55;\n            	// console.log(translateAmount);\n\n       			$hitzone.css({\n			    	\"transform\" : \"translate3d(0,\" + translateAmount + \"px,0)\"\n			    });\n\n			    if (translateAmount <= -150) {\n			    	$body.addClass('pullup-mode');\n			    }\n                \n                break;\n        }\n\n    };\n\n\n})",
-			"file": "app.js",
-			"file_size": 1955,
-			"file_write_time": 1398229522000000,
+			"file": "pull-down.scss",
 			"settings":
 			{
-				"buffer_size": 2066,
+				"buffer_size": 4238,
 				"line_ending": "Unix"
 			}
 		}
@@ -551,6 +556,9 @@
 	},
 	"file_history":
 	[
+		"/Users/timpaul/Desktop/GIT Repos/pull-refresh-demo/app.scss",
+		"/Users/timpaul/Desktop/GIT Repos/pull-refresh-demo/index.html",
+		"/Users/timpaul/Desktop/GIT Repos/pull-refresh-demo/app.js",
 		"/Users/timpaul/Desktop/pulltorefresh-master/default.html",
 		"/Users/timpaul/Desktop/pull-to-refresh-master/index.html",
 		"/Users/timpaul/Desktop/GIT Repos/rh-prototype/core/static/svg/desaturate.svg",
@@ -675,10 +683,7 @@
 		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/templates/console_files/_competition.html",
 		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/templates/console_files/_get_involved.html",
 		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/templates/console_files/_glossary.html",
-		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/templates/console_files/_prizes.html",
-		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/templates/console_files/_who.html",
-		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/settings/__init__.py",
-		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/static/js/app.js"
+		"/Users/timpaul/Desktop/GIT Repos/rabbithole-dogfood/core/templates/console_files/_prizes.html"
 	],
 	"find":
 	{
@@ -705,6 +710,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"recieve",
+			"1s",
 			"div",
 			"z",
 			".hitarea",
@@ -830,9 +837,7 @@
 			"focusWindow\nfocusWindow",
 			"focusWindow",
 			"span",
-			"li",
-			"apps-menu",
-			"alt"
+			"li"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -850,28 +855,28 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "pull-down.html",
 					"settings":
 					{
-						"buffer_size": 1028,
+						"buffer_size": 1376,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								931,
-								931
+								739,
+								739
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -882,24 +887,25 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app.scss",
+					"file": "pull-down.js",
 					"settings":
 					{
-						"buffer_size": 597,
+						"buffer_size": 9875,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								414,
-								414
+								375,
+								375
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -909,28 +915,27 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app.js",
+					"file": "pull-down.scss",
 					"settings":
 					{
-						"buffer_size": 2066,
+						"buffer_size": 4238,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								888,
-								888
+								2777,
+								2777
 							]
 						],
 						"settings":
 						{
-							"spell_check": true,
-							"syntax": "Packages/jQuery/Syntaxes/jQueryJavaScript.tmLanguage",
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2511.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
