@@ -5,13 +5,11 @@
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 /* line 11, pull-down.scss */
 html, body {
-  height: 100%;
-}
+  height: 100%; }
 
 /* 
 
@@ -37,175 +35,154 @@ body {
   padding: 0;
   height: 100%;
   background: #9a9a9a;
+  font-size: 16px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto", san-serif;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
-/* line 50, pull-down.scss */
+/* line 52, pull-down.scss */
 hgroup {
   position: absolute;
   width: 100%;
   min-height: 50%;
-  padding: 25px;
-}
-/* line 57, pull-down.scss */
-hgroup > * {
-  margin: 0;
-  font-family: 'Vollkorn', serif;
-  font-weight: 400;
-  color: white;
-}
-/* line 63, pull-down.scss */
-hgroup .cancel {
-  position: absolute;
-  padding: 0 17px;
-  line-height: 43px;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: "Roboto", san-serif;
-  text-transform: lowercase;
-  cursor: pointer;
-  display: none;
-}
-/* line 75, pull-down.scss */
-hgroup h2 {
-  font-family: "Roboto", san-serif;
-  font-size: 14px;
-  font-weight: 300;
-}
-/* line 81, pull-down.scss */
-hgroup h2 strong:before {
-  content: "Pull down ";
-}
-/* line 86, pull-down.scss */
-hgroup h1 {
-  font-weight: 700;
-  font-size: 25px;
-  text-align: center;
-  display: none;
-}
+  padding: 25px; }
+  /* line 59, pull-down.scss */
+  hgroup > * {
+    margin: 0;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    color: white; }
+  /* line 65, pull-down.scss */
+  hgroup .cancel {
+    position: absolute;
+    padding: 0 17px;
+    line-height: 43px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Roboto", san-serif;
+    text-transform: lowercase;
+    cursor: pointer;
+    display: none; }
+  /* line 77, pull-down.scss */
+  hgroup h2 {
+    font-family: "Roboto", san-serif;
+    font-size: 14px;
+    font-weight: 300; }
+    /* line 83, pull-down.scss */
+    hgroup h2 strong:before {
+      content: "Pull down "; }
+  /* line 88, pull-down.scss */
+  hgroup h1 {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    display: none; }
 
-/* line 94, pull-down.scss */
+/* line 96, pull-down.scss */
 #pull-down {
   top: 0;
   left: 0;
-  background: #1c1c1c;
-}
-/* line 99, pull-down.scss */
-#pull-down:before {
-  content: "";
-  width: 0;
-  height: 7px;
-  position: absolute;
-  background: #5e5e5e;
-  top: 0;
-  left: 0;
-  transition-property: width, opacity;
-  transition-duration: .1s;
-  transition-delay: 0, 0;
-  transition-timing-function: ease-in-out;
-}
-/* line 114, pull-down.scss */
-#pull-down .cancel {
-  top: 0;
-  right: 0;
-  background: #2e2e2e;
-  color: rgba(255, 255, 255, 0.7);
-}
-/* line 120, pull-down.scss */
-#pull-down h2 {
-  color: #757575;
-}
-/* line 123, pull-down.scss */
-#pull-down h2:after {
-  content: "to receive cards";
-}
-/* line 127, pull-down.scss */
-#pull-down h1 {
-  margin: 45px 0 0 0;
-}
-/* line 132, pull-down.scss */
-#pull-down[data-percent="100"]:before {
-  transition-delay: 0, .5s;
-  opacity: 0;
-}
-/* line 138, pull-down.scss */
-#pull-down[data-percent="100"] h2 strong:before {
-  content: "Release ";
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='0']:before {
-  width: 0%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='10']:before {
-  width: 10%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='20']:before {
-  width: 20%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='30']:before {
-  width: 30%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='40']:before {
-  width: 40%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='50']:before {
-  width: 50%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='60']:before {
-  width: 60%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='70']:before {
-  width: 70%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='80']:before {
-  width: 80%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='90']:before {
-  width: 90%;
-}
-/* line 149, pull-down.scss */
-#pull-down[data-percent='100']:before {
-  width: 100%;
-}
+  background: #1c1c1c; }
+  /* line 101, pull-down.scss */
+  #pull-down:before {
+    content: "";
+    width: 0;
+    height: 7px;
+    position: absolute;
+    background: #5e5e5e;
+    top: 0;
+    left: 0;
+    transition-property: width, opacity;
+    transition-duration: .1s;
+    transition-delay: 0, 0;
+    transition-timing-function: ease-in-out; }
+  /* line 116, pull-down.scss */
+  #pull-down .cancel {
+    top: 0;
+    right: 0;
+    background: #2e2e2e;
+    color: rgba(255, 255, 255, 0.7); }
+  /* line 122, pull-down.scss */
+  #pull-down h2 {
+    color: #757575; }
+    /* line 125, pull-down.scss */
+    #pull-down h2:after {
+      content: "to receive cards"; }
+  /* line 129, pull-down.scss */
+  #pull-down h1 {
+    margin: 36px 0 0 0; }
+    /* line 132, pull-down.scss */
+    #pull-down h1:before {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 40px;
+      height: 40px;
+      margin: -5px 22px 0 0;
+      box-shadow: inset 0 0 0 5px #424242; }
+  /* line 144, pull-down.scss */
+  #pull-down[data-percent="100"]:before {
+    transition-delay: 0, .5s;
+    opacity: 0; }
+  /* line 149, pull-down.scss */
+  #pull-down[data-percent="100"] h2 strong:before {
+    content: "Release "; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="0"]:before {
+    width: 0%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="10"]:before {
+    width: 10%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="20"]:before {
+    width: 20%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="30"]:before {
+    width: 30%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="40"]:before {
+    width: 40%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="50"]:before {
+    width: 50%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="60"]:before {
+    width: 60%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="70"]:before {
+    width: 70%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="80"]:before {
+    width: 80%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="90"]:before {
+    width: 90%; }
+  /* line 159, pull-down.scss */
+  #pull-down[data-percent="100"]:before {
+    width: 100%; }
 
-/* line 159, pull-down.scss */
+/* line 169, pull-down.scss */
 body.pulldown-mode hgroup .cancel {
-  display: block;
-}
-/* line 162, pull-down.scss */
+  display: block; }
+/* line 172, pull-down.scss */
 body.pulldown-mode hgroup h1 {
-  display: block;
-}
-/* line 166, pull-down.scss */
+  display: block; }
+/* line 176, pull-down.scss */
 body.pulldown-mode hgroup h2:after {
-  content: "mode" !important;
-}
-/* line 170, pull-down.scss */
+  content: "mode" !important; }
+/* line 180, pull-down.scss */
 body.pulldown-mode hgroup h2 strong:before {
-  content: "Card receivership " !important;
-}
-/* line 179, pull-down.scss */
-body.return #pull-down:before {
-  display: none;
-}
-/* line 183, pull-down.scss */
-body.return #hitzone {
-  transition-duration: 200ms;
-}
-
+  content: "Card receivership " !important; }
 /* line 189, pull-down.scss */
+body.return #pull-down:before {
+  display: none; }
+/* line 193, pull-down.scss */
+body.return #hitzone {
+  transition-duration: 200ms; }
+
+/* line 199, pull-down.scss */
 #hitzone {
   position: absolute;
   width: 100%;
@@ -218,56 +195,49 @@ body.return #hitzone {
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   transition-property: transform;
   transition-duration: 0s;
-  transition-timing-function: ease-in-out;
-}
+  transition-timing-function: ease-in-out; }
 
-/* line 211, pull-down.scss */
+/* line 221, pull-down.scss */
 #carousel, #carousel ul, #carousel li {
   min-height: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  position: relative;
-}
+  position: relative; }
 
-/* line 219, pull-down.scss */
+/* line 229, pull-down.scss */
 #carousel {
   background: #9a9a9a;
   overflow: hidden;
   width: 100%;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-  transform-style: preserve-3d;
-}
+  transform-style: preserve-3d; }
 
-/* line 229, pull-down.scss */
+/* line 239, pull-down.scss */
 #carousel ul.animate {
-  transition: transform .3s;
-}
+  transition: transform .3s; }
 
-/* line 233, pull-down.scss */
+/* line 243, pull-down.scss */
 #carousel ul {
   transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
   overflow: hidden;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
+  transform-style: preserve-3d; }
 
-/* line 242, pull-down.scss */
+/* line 252, pull-down.scss */
 #carousel ul {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
+  position: relative; }
 
-/* line 247, pull-down.scss */
+/* line 257, pull-down.scss */
 #carousel li {
   float: left;
   overflow: hidden;
   transform-style: preserve-3d;
-  transform: translate3d(0, 0, 0);
-}
+  transform: translate3d(0, 0, 0); }
 
-/* line 254, pull-down.scss */
+/* line 264, pull-down.scss */
 #carousel li h2 {
   color: #fff;
   font-size: 30px;
@@ -276,30 +246,24 @@ body.return #hitzone {
   top: 40%;
   left: 0;
   width: 100%;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-}
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); }
 
-/* line 265, pull-down.scss */
+/* line 275, pull-down.scss */
 #carousel li.pane1 {
-  background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%);
-}
+  background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%); }
 
-/* line 266, pull-down.scss */
+/* line 276, pull-down.scss */
 #carousel li.pane2 {
-  background: #4986e7;
-}
+  background: #4986e7; }
 
-/* line 267, pull-down.scss */
+/* line 277, pull-down.scss */
 #carousel li.pane3 {
-  background: #d06b64;
-}
+  background: #d06b64; }
 
-/* line 268, pull-down.scss */
+/* line 278, pull-down.scss */
 #carousel li.pane4 {
-  background: #cd74e6;
-}
+  background: #cd74e6; }
 
-/* line 269, pull-down.scss */
+/* line 279, pull-down.scss */
 #carousel li.pane5 {
-  background: #9fe1e7;
-}
+  background: #9fe1e7; }

@@ -37,6 +37,8 @@ body {
 	padding: 0;
 	height: 100%;
 	background: darken(silver, 15%);
+	font-size: 16px;
+	line-height: 1.5;
 
 	// OSX Font aliasing:
 	-webkit-font-smoothing: antialiased; // Chrome/Safari font aliasing
@@ -125,7 +127,17 @@ hgroup {
 		}
 	}
 	h1 {
-		margin: 45px 0 0 0;
+		margin: 36px 0 0 0;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			vertical-align: top;
+			width: 40px;
+			height: 40px;
+			margin: -5px 22px 0 0;
+			box-shadow: inset 0 0 0 5px lighten(#1c1c1c, 15%);
+		}
 	}
 
 	&[data-percent="100"] {
@@ -134,7 +146,6 @@ hgroup {
 			opacity: 0;
 		}
 		h2 {
-
 			strong:before {
 				content: "Release ";
 			}
@@ -143,9 +154,8 @@ hgroup {
 
 	$step: 10;
 	$loops: round(100 / $step);
-
 	@for $i from 0 through $loops {
-		&[data-percent='#{$i * $step}'] {
+		&[data-percent="#{$i * $step}"] {
 			&:before {
 				width: $i * 10%;
 			}
