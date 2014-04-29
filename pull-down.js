@@ -39,10 +39,13 @@ $(function(){
 
             // on release we check how far we dragged + reset if no mode change is present
             case 'release':
+                // 'return' class is used for css animation smoothness
                 $body.addClass('return');
+                // reset all translation values first up...
                 $hitzone.css({
 			    	"transform" : "translate3d(0,0,0)"
 			    });
+                // if pullDownMode has been triggered, change into 'pull-down' mode
 			    if (pullDownMode) {
                     $pulldown.attr('data-percent','100');
                 	$body.addClass('pulldown-mode');
@@ -51,8 +54,10 @@ $(function(){
                     });
                     lockedIn = true;
                 } else {
+                    // otherwise, reset the mode
                     resetMode();
                 }
+                // once css transitions are complete, remove the class that enables them.
 			    setTimeout(function() {
 			        $body.removeClass('return');
 			    }, TIMEOUT_VAL);
