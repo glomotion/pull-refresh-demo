@@ -11,7 +11,7 @@ $(function(){
 	var $hitzone = $('#hitzone');
     var $pulldown = $('#pull-down');
 	
-    // some misc global vars that change (switches mostly)
+    // some misc global vars that can update (switches mostly)
 	var pullDownMode, translateAmount, lockedIn;
     var offset = 0;
     
@@ -62,10 +62,15 @@ $(function(){
 
             // when we dragdown
             case 'dragdown':
+                // capture the basic gesture movement, and refine it for use in the UI
             	translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO;
+                // have we dragged enough already to trigger 'pull-down' mode?
                 if (translateAmount >= BREAKPOINT) {
+                    // trigger 'pull-down' mode
                     pullDownMode = true;
                 }
+                // are we already in 'pull-down' mode?
+                // if so, we need to alter the 'translateAmount' a little...
                 if (lockedIn) {
                     // temporarily disable pulldown mode and allow dragging
                     $body.removeClass('pulldown-mode');
@@ -77,12 +82,14 @@ $(function(){
                         pullDownMode = true;
                     }
                 } else {
+                    // we're not in 'pull-down' mode, so animate the distance left until the 'breakpoint'
                     var percentComplete = (100 / BREAKPOINT) * translateAmount;
                     if (percentComplete <= 101 && percentComplete > 0) {
-                        // animate thru the percentage levels
+                        // animate thru the percentage levels, in increments of 10
                         $pulldown.attr('data-percent',Math.round(percentComplete / 10) * 10);
                     }
                 }
+                // And.... finally, apply the calculated 'translationAmount', as a 3d transform...
                 $hitzone.css({
                     "transform" : "translate3d(0," + translateAmount + "px,0)"
                 });
