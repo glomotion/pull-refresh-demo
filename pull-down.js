@@ -79,6 +79,7 @@ $(function(){
                 if (lockedIn) {
                     // temporarily disable pulldown mode and allow dragging
                     $body.removeClass('pulldown-mode');
+                    // global offset value ensures that we start translating from where we are supposed to
                     if (offset === 0) {
                         offset = LOCK_OFFSET;
                     }
@@ -129,6 +130,7 @@ $(function(){
 
     }
 
+    // generic reset function, clears 'pull-down' mode, and restores the app to normal
     function resetMode() {
     	$hitzone.css({
             "transform" : "translate3d(0,0,0)"
@@ -143,6 +145,7 @@ $(function(){
     	}, TIMEOUT_VAL);
     }
 
+    // create and innit the left/right carousel object
     var carousel = new Carousel("#carousel");
     carousel.init();
 
