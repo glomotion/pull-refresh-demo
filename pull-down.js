@@ -113,6 +113,7 @@ $(function(){
                     $body.removeClass('pulldown-mode');
                     translateAmount = ev.gesture.deltaY * TRANSLATE_RATIO + LOCK_OFFSET;
                 } else {
+                    // calculate current drag progress as a percentage
                     var percentComplete = (101 / BREAKPOINT) * translateAmount;
                     if (percentComplete <= 100 && percentComplete > 0) {
                         // animate thru the animation
