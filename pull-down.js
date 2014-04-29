@@ -95,7 +95,7 @@ $(function(){
                         $pulldown.attr('data-percent',Math.round(percentComplete / 10) * 10);
                     }
                 }
-                // And.... finally, apply the calculated 'translationAmount', as a 3d transform...
+                // finally, apply calculated 'translationAmount', as a 3d transform (butter smooth)...
                 $hitzone.css({
                     "transform" : "translate3d(0," + translateAmount + "px,0)"
                 });
@@ -120,9 +120,11 @@ $(function(){
                         $pulldown.attr('data-percent',Math.round(percentComplete / 10) * 10);
                     }
                 }
+                // final check to see if we have dragged up enough to cancel 'pull-down' mode
                 if (translateAmount <= BREAKPOINT) {
                     pullDownMode = false;
                 }
+                // finally, apply calculated 'translationAmount', as a 3d transform (butter smooth)...
                 $hitzone.css({
                     "transform" : "translate3d(0," + translateAmount + "px,0)"
                 });
